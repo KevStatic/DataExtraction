@@ -49,8 +49,9 @@ def process_all_pdfs_in_folder(folder_path, search_word):
             print(f'The word "{search_word}" was not found in "{pdf_file}".')
 
 if __name__ == "__main__":
-    folder_path = r"C:\Users\keval\GithubProjects\DataExtraction"
-    search_word = "case"
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    folder_path = current_dir
+    search_word = "Effective Area"
     
     process_all_pdfs_in_folder(folder_path, search_word)
 
