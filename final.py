@@ -63,8 +63,9 @@ def process_all_pdfs_in_folder(folder_path, search_words):
     return pdf_data
 
 if __name__ == "__main__":
-    folder_path = r"C:\Users\keval\GithubProjects\DataExtraction"
-    search_word = "case"
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    folder_path = current_dir
+    search_words = ["Effective Area"]
     
     process_all_pdfs_in_folder(folder_path, search_words)
 
@@ -127,28 +128,6 @@ if len(excel_files) > 0:
             print("Effective Area not found.")
         else:
             print(f"Effective Area Value: {overall_area_value}")
-
-        # Search for the cell containing 'Overall Coefficient'
-        overall_coefficient_value = None
-        
-        for i, row in df.iterrows():
-            for j, cell in enumerate(row):
-                if isinstance(cell, str) and 'Overall Coefficient' in cell:
-                    # Attempt to find the value in the next few cells to the right
-                    for offset in range(1, 10):  # Adjust the range based on how many cells to check
-                        if j + offset < len(df.columns):
-                            value = df.iloc[i, j + offset]
-                            if pd.notna(value):
-                                overall_coefficient_value = value
-                                break
-                    break
-            if overall_coefficient_value is not None:
-                break
-        
-        if overall_coefficient_value is None:
-            print("Overall Coefficient not found.")
-        else:
-            print(f"Overall Coefficient Value: {overall_coefficient_value}")
 
         # Search for the cell containing 'Heat Duty'
         heat_duty_row = None
