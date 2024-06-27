@@ -1,0 +1,5 @@
+fitz
+camelot-py[cv]
+opencv-python
+PyPDF2==2.10.0
+ghostscript
