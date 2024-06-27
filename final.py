@@ -63,9 +63,8 @@ def process_all_pdfs_in_folder(folder_path, search_words):
     return pdf_data
 
 if __name__ == "__main__":
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    folder_path = current_dir
-    search_words = ["Effective Area"]
+    folder_path = r"C:\Users\keval\GithubProjects\DataExtraction"
+    search_word = "case"
     
     process_all_pdfs_in_folder(folder_path, search_words)
 
